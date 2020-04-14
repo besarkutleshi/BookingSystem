@@ -36,9 +36,9 @@
                 android:layout_width="396dp"
                 android:layout_height="26dp"
                 android:layout_marginLeft="10dp"
-                android:text="Trip to :                                                Maldive"
-                android:textColor="#000000"
-                android:textSize="20dp"
+                android:text="Trip to :                                                                          Maldive"
+                android:textColor="@color/colorNav"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.587"
@@ -50,9 +50,9 @@
                 android:layout_height="26dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="0dp"
-                android:text="Date :                                              20/04/2020"
-                android:textColor="#000000"
-                android:textSize="20dp"
+                android:text="Date :                                                                       20/04/2020"
+                android:textColor="@color/colorNav"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.587"
@@ -69,12 +69,13 @@
                 app:srcCompat="@drawable/dubai" />
 
             <TextView
+                android:id="@+id/textView"
                 android:layout_width="396dp"
                 android:layout_height="26dp"
                 android:layout_marginLeft="10dp"
-                android:text="Trip to :                                                Dubai"
-                android:textColor="#000000"
-                android:textSize="20dp"
+                android:text="Trip to :                                                                          Maldive"
+                android:textColor="@color/colorNav"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.587"
@@ -86,9 +87,9 @@
                 android:layout_height="26dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="0dp"
-                android:text="Date :                                              20/04/2020"
-                android:textColor="#000000"
-                android:textSize="20dp"
+                android:text="Date :                                                                       20/04/2020"
+                android:textColor="@color/colorNav"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.587"
@@ -103,12 +104,13 @@
                 app:srcCompat="@drawable/amsterdam" />
 
             <TextView
-                android:layout_width="410dp"
+                android:id="@+id/textView"
+                android:layout_width="396dp"
                 android:layout_height="26dp"
                 android:layout_marginLeft="10dp"
-                android:text="Trip to :                                          Amsterdam"
-                android:textColor="#000000"
-                android:textSize="20dp"
+                android:text="Trip to :                                                                          Maldive"
+                android:textColor="@color/colorNav"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.587"
@@ -119,16 +121,34 @@
                 android:layout_width="396dp"
                 android:layout_height="26dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="0dp"
-                android:text="Date :                                              20/04/2020"
-                android:textColor="#000000"
-                android:textSize="20dp"
+                android:layout_marginBottom="50dp"
+                android:text="Date :                                                                       20/04/2020"
+                android:textColor="@color/colorNav"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.587"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
         </LinearLayout>
-
     </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/container"
+        >
+        <!-- Main content -->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/back_gradient"
+            app:itemIconTint="@color/colorNav"
+            app:itemTextColor="@color/colorNav"
+            app:menu="@menu/bottom_navigation_menu"
+            />
+    </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

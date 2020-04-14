@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorTextBoxBack">#0A5D5B</color>
     <color name="colorHint">#c3acacac</color>
+    <color name="colorNav">#f2f5df</color>
 </resources>
