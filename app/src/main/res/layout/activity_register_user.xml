@@ -59,6 +59,7 @@
             android:textSize="22sp" />
 
         <Button
+            android:id="@+id/btnRegisterUser"
             android:layout_width="330dp"
             android:layout_height="50dp"
             android:layout_marginTop="50dp"
@@ -69,6 +70,7 @@
             />
 
         <Button
+            android:id="@+id/btnClose"
             android:layout_width="330dp"
             android:layout_height="50dp"
             android:layout_marginTop="50dp"

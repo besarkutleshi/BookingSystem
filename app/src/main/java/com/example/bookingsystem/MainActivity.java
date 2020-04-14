@@ -17,11 +17,13 @@ public class MainActivity extends AppCompatActivity {
         btnregister = findViewById(R.id.btnLoginRegister);
         btnlogin = findViewById(R.id.btnLogin);
 
+        final Intent i = new Intent(this, Booking.class);
+        final Intent in = new Intent(this, RegisterUser.class);
         btnlogin.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        OpenMainActivity();
+                        OpenActivity(i);
                     }
                 }
         );
@@ -30,19 +32,13 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener(){
                     @Override
                     public void onClick(View v){
-                        OpenRegisterAcitvity();
+                        OpenActivity(in);
                     }
                 }
         );
     }
 
-    public void OpenRegisterAcitvity(){
-        Intent i = new Intent(this, RegisterUser.class);
-        startActivity(i);
-    }
-
-    public void OpenMainActivity(){
-        Intent i = new Intent(this, Booking.class);
+    public void OpenActivity(Intent i){
         startActivity(i);
     }
 }
