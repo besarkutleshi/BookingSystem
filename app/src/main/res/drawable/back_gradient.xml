@@ -1,0 +1,12 @@
+<shape xmlns:androi="http://schemas.android.com/apk/res/android"
+    androi:shape="rectangle">
+    <gradient
+        androi:startColor="#018C89"
+        androi:centerColor="#0A7A78"
+        androi:endColor="#0A5D5B"
+        androi:angle="0"
+        />
+    <corners
+        androi:radius="0dp"
+        />
+</shape>
