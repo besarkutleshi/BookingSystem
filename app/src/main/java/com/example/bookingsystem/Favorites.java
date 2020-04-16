@@ -6,43 +6,33 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Booking extends AppCompatActivity {
-    Button btnFavorites;
+public class Favorites extends AppCompatActivity {
+
     BottomNavigationView bottomNavigation;
-    Intent favorites;
+    Intent home;
     Intent password;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_booking);
-        favorites = new Intent(this, Favorites.class);
+        setContentView(R.layout.activity_favorites);
+        home = new Intent(this, Booking.class);
         password = new Intent(this, ChangePassword.class);
-        btnFavorites = findViewById(R.id.btnfav);
         bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(nav);
-        btnFavorites.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(Booking.this, "Saved", Toast.LENGTH_LONG).show();
-                    }
-                }
-        );
     }
+
 
     BottomNavigationView.OnNavigationItemSelectedListener nav = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()){
-                case R.id.navigation_favorites:
-                    startActivity(favorites);
-                    return  true;
+                case R.id.navigation_home:
+                    startActivity(home);
+                    return true;
                 case R.id.navigation_change:
                     startActivity(password);
                     return true;

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Button btnregister;
@@ -16,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnregister = findViewById(R.id.btnLoginRegister);
         btnlogin = findViewById(R.id.btnLogin);
-
         final Intent i = new Intent(this, Booking.class);
         final Intent in = new Intent(this, RegisterUser.class);
         btnlogin.setOnClickListener(
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+
     }
 
     public void OpenActivity(Intent i){
