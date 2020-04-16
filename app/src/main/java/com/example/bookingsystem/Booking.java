@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Booking extends AppCompatActivity {
-    Button btnFavorites;
+    Button btnFavoritesss;
     BottomNavigationView bottomNavigation;
     Intent favorites;
     Intent password;
@@ -23,10 +23,10 @@ public class Booking extends AppCompatActivity {
         setContentView(R.layout.activity_booking);
         favorites = new Intent(this, Favorites.class);
         password = new Intent(this, ChangePassword.class);
-        btnFavorites = findViewById(R.id.btnfav);
+        btnFavoritesss = findViewById(R.id.btnfav);
         bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(nav);
-        btnFavorites.setOnClickListener(
+        btnFavoritesss.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
