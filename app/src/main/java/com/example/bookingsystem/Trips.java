@@ -16,6 +16,7 @@ import retrofit2.http.POST;
 
 public class Trips extends AppCompatActivity {
     TextView textView;
+    JsonPlaceHolderApi jsonPlaceHolderApi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,33 +24,30 @@ public class Trips extends AppCompatActivity {
         textView = findViewById(R.id.txttrips);
 
         Retrofit retrofit = new Retrofit.Builder().
-                baseUrl("https://jsonplaceholder.typicode.com/").
+                baseUrl("http://192.168.0.230:45455/api/trips/").
                 addConverterFactory(GsonConverterFactory.create()).build();
-        JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+        jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
 
-        Call<List<Trip>> call = jsonPlaceHolderApi.getPosts();
-        call.enqueue(new Callback<List<Trip>>() {
+        Call<List<RegisterModel>> call = jsonPlaceHolderApi.getPosts();
+        call.enqueue(new Callback<List<RegisterModel>>() {
             @Override
-            public void onResponse(Call<List<Trip>> call, Response<List<Trip>> response) {
+            public void onResponse(Call<List<RegisterModel>> call, Response<List<RegisterModel>> response) {
                 if(!response.isSuccessful()){
-                    textView.setText("Code : " + response.code());
-                    return;
-                }
-                List<Trip> Trips = response.body();
-                for(Trip trip : Trips){
-                    String content = "";
-                    content += "ID : " + trip.getId() + "\n";
-                    content += "User ID : " + trip.getUserID() + "\n";
-                    content += "Title : " + trip.getTitle() + "\n";
-                    content += "Text : " + trip.getText() + "\n\n";
 
-                    textView.append(content);
+                }
+                else{
+                    List<RegisterModel> models = response.body();
+                    for(RegisterModel model : models){
+                        String content = "";
+                        content += "\n";
+                        textView.append(content);
+                    }
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Trip>> call, Throwable t) {
-                textView.setText(t.getMessage());
+            public void onFailure(Call<List<RegisterModel>> call, Throwable t) {
+
             }
         });
     }

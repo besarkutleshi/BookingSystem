@@ -21,7 +21,7 @@
             android:src="@drawable/logo" />
 
         <EditText
-            android:id="@+id/txtusername"
+            android:id="@+id/txtusernameR"
             android:layout_width="330dp"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
@@ -33,7 +33,7 @@
             android:textSize="22sp" />
 
         <EditText
-            android:id="@+id/txtpassword"
+            android:id="@+id/txtpasswordR"
             android:layout_width="330dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -46,7 +46,7 @@
             android:textSize="22sp" />
 
         <EditText
-            android:id="@+id/txtconfirmpassword"
+            android:id="@+id/txtconfirmpasswordR"
             android:layout_width="330dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
