@@ -1,30 +1,29 @@
 package com.example.bookingsystem;
 
+import android.content.Intent;
+
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Trip {
-    private int userID;
-    private int id;
-    private  String title;
 
-    @SerializedName("body")
-    private String text;
+    @SerializedName("id")
+    public Integer ID;
+    @SerializedName("name")
+    public String Name;
+    @SerializedName("date")
+    public Date Date;
+    @SerializedName("description")
+    public String Description;
+    @SerializedName("photo")
+    public String Photo;
 
-    public int getUserID() {
-        return userID;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getText() {
-        return text;
+    public Trip(Integer ID, String name, java.sql.Date date, String description, String photo) {
+        this.ID = ID;
+        Name = name;
+        Date = date;
+        Description = description;
+        Photo = photo;
     }
 }

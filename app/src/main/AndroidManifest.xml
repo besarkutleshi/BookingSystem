@@ -3,6 +3,7 @@
     package="com.example.bookingsystem">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,9 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChangePassword"></activity>
+        <activity android:name=".Trips"></activity>
+        <activity android:name=".ChangePassword" />
         <activity android:name=".Favorites" />
-        <activity android:name=".Trips" />
         <activity android:name=".Booking" />
         <activity android:name=".RegisterUser" />
         <activity android:name=".MainActivity">

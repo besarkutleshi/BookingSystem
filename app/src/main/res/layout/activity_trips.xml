@@ -6,18 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Trips">
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerTrips"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/txttrips"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="#000"
-            android:textSize="20dp" />
-
-
-    </androidx.core.widget.NestedScrollView>
-
+        android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

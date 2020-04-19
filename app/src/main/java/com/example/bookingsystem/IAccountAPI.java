@@ -10,4 +10,10 @@ public interface IAccountAPI {
     @POST("Login")
     Call<Void> Login(@Body LoginModel model);
 
+    @POST("RegisterUser")
+    Call<RegisterModel> RegisterModel(@Body RegisterModel model);
+
+    @POST("Logout")
+    Call<Void> Logout();
+
 }

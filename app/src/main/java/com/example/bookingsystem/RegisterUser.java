@@ -21,7 +21,7 @@ public class RegisterUser extends AppCompatActivity {
     EditText txtusername;
     EditText txtpassword;
     EditText txtconfirmpassword;
-    JsonPlaceHolderApi jsonPlaceHolderApi;
+    IAccountAPI accountAPI;
     RegisterModel model;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class RegisterUser extends AppCompatActivity {
                 baseUrl("http://192.168.0.230:45455/api/trips/").
                 addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
-        jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+        accountAPI = retrofit.create(IAccountAPI.class);
 
         btnRegister.setOnClickListener(
                 new View.OnClickListener() {
@@ -65,7 +65,7 @@ public class RegisterUser extends AppCompatActivity {
     }
 
     public void Register(RegisterModel model){
-        Call<RegisterModel> call = jsonPlaceHolderApi.RegisterModel(model);
+        Call<RegisterModel> call = accountAPI.RegisterModel(model);
         call.enqueue(new Callback<RegisterModel>() {
             @Override
             public void onResponse(Call<RegisterModel> call, Response<RegisterModel> response) {
