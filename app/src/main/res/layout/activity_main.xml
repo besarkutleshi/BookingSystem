@@ -16,9 +16,28 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:src="@drawable/logo" />
+            android:layout_marginTop="-20dp"
+            android:layout_marginBottom="40dp"
+            android:src="@drawable/holiday" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textSize="35dp"
+            android:background="#000"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:layout_marginLeft="30dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please sign in to continue"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/colorHint"/>
 
         <EditText
             android:id="@+id/txtLoginUsername"
@@ -28,6 +47,7 @@
             android:background="@drawable/textbox_back"
             android:drawableLeft="@drawable/ic_person_outline_white_24dp"
             android:hint="USER NAME"
+            android:textColor="@color/colorWhite"
             android:padding="10dp"
             android:textColorHint="@color/colorHint"
             android:textSize="22sp" />
@@ -41,30 +61,30 @@
             android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
             android:hint="PASSWORD"
             android:inputType="textPassword"
+            android:textColor="@color/colorWhite"
             android:padding="10dp"
             android:textColorHint="@color/colorHint"
             android:textSize="22sp" />
 
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="330dp"
-            android:layout_height="50dp"
+            android:layout_width="221dp"
+            android:layout_height="60dp"
             android:layout_marginTop="20dp"
-            android:textSize="22sp"
-            android:text="Login"
-            android:textColor="@color/colorHint"
             android:background="@drawable/loginbutton_back"
-            />
+            android:text="Login"
+            android:textColor="@color/colorBlack"
+            android:textSize="22sp" />
+
         <Button
             android:id="@+id/btnLoginRegister"
-            android:layout_width="330dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
             android:layout_marginTop="70dp"
-            android:textSize="22sp"
-            android:text="Register Here"
+            android:background="#000"
+            android:text="Dont have an account? Sign up "
             android:textColor="@color/colorHint"
-            android:background="@drawable/registerbutton_back"
-
+            android:textSize="15sp"
             />
     </LinearLayout>
 

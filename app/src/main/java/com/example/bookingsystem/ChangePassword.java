@@ -18,7 +18,7 @@ public class ChangePassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
         favorites = new Intent(this, Favorites.class);
-        home = new Intent(this, Booking.class);
+        home = new Intent(this, Trips.class);
         bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(nav);
     }

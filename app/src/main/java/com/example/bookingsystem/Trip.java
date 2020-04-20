@@ -7,23 +7,34 @@ import com.google.gson.annotations.SerializedName;
 import java.sql.Date;
 
 public class Trip {
-
     @SerializedName("id")
-    public Integer ID;
+    private Integer ID;
     @SerializedName("name")
-    public String Name;
+    private String Name;
     @SerializedName("date")
-    public Date Date;
+    private String Date;
     @SerializedName("description")
-    public String Description;
+    private String Description;
     @SerializedName("photo")
-    public String Photo;
+    private String Photo;
 
-    public Trip(Integer ID, String name, java.sql.Date date, String description, String photo) {
-        this.ID = ID;
-        Name = name;
-        Date = date;
-        Description = description;
-        Photo = photo;
+    public Integer getID() {
+        return ID;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public String getDate() {
+        return Date;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public String getPhoto() {
+        return Photo;
     }
 }

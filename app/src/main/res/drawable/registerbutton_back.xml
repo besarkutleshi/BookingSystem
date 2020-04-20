@@ -1,5 +1,0 @@
-<shape xmlns:androi="http://schemas.android.com/apk/res/android"
-    androi:shape="rectangle">
-    <solid androi:color="@color/colorPrimary" />
-    <corners androi:radius="15dp"/>
-</shape>

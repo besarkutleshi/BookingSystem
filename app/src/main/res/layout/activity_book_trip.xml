@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back_gradient"
+    tools:context=".BookTrip">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="409dp"
+        android:layout_height="259dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.014">
+
+        <ImageView
+            android:id="@+id/imgTrip"
+            android:layout_width="410dp"
+            android:layout_height="153dp"
+            android:background="@drawable/back_gradient"
+            app:layout_constraintBottom_toTopOf="@+id/cardView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/txtdescription"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:layout_marginTop="400px"
+            android:background="@drawable/back_gradient"
+            android:text="Description : "
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/txtpay"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/back_gradient"
+            android:layout_marginTop="560px"
+            android:text="Pay : "
+            android:textSize="20dp" />
+    </androidx.cardview.widget.CardView>
+
+
+    <EditText
+        android:id="@+id/txtusernameR"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/textbox_back"
+        android:drawableLeft="@drawable/ic_person_outline_white_24dp"
+        android:hint="Name"
+        android:padding="10dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorHint"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.012"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+    <EditText
+        android:id="@+id/txt"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/textbox_back"
+        android:drawableLeft="@drawable/ic_person_outline_white_24dp"
+        android:hint="Surname"
+        android:padding="10dp"
+        android:spinnerMode="dropdown"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorHint"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="132dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:autofillHints="Chairs"
+        android:background="@color/colorBlack"
+        android:entries="@array/chairs"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt"
+        app:layout_constraintVertical_bias="0.066" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="149dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="28dp"
+        android:drawableLeft="@drawable/ic_seat"
+        android:text="Choose Chair"
+        android:textColor="@color/colorHint"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt" />
+
+    <Button
+        android:layout_width="168dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/loginbutton_back"
+        android:text="Book"
+        android:textColor="@color/colorBlack"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

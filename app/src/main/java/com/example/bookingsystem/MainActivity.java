@@ -8,7 +8,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         btnlogin = findViewById(R.id.btnLogin);
         txtUserName = findViewById(R.id.txtLoginUsername);
         txtPasswordL = findViewById(R.id.txtLoginPassword);
+        //img = findViewById(R.id.imageView2);
+        //Picasso.get().load("http://192.168.0.230:45455/api/trips/ListPhotosTrips/maldivesguide1.png").into(img);
         final Intent i = new Intent(this, Trips.class);
         final Intent in = new Intent(this, RegisterUser.class);
         Retrofit.Builder builder = new Retrofit.Builder().
@@ -38,12 +43,14 @@ public class MainActivity extends AppCompatActivity {
         Retrofit retrofit = builder.build();
         accountAPI = retrofit.create(IAccountAPI.class);
 
+        final Intent ib = new Intent(this,BookTrip.class);
         btnlogin.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         final LoginModel model = new LoginModel(txtUserName.getText().toString(),txtPasswordL.getText().toString());
-                        Login(model,i);
+                        //Login(model,i);
+                        startActivity(ib);
                     }
                 }
         );

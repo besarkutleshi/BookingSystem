@@ -1,9 +1,9 @@
 <shape xmlns:androi="http://schemas.android.com/apk/res/android"
     androi:shape="rectangle">
     <gradient
-        androi:startColor="#018C89"
-        androi:centerColor="#0A7A78"
-        androi:endColor="#0A5D5B"
+        androi:startColor="#000"
+        androi:centerColor="#000"
+        androi:endColor="#000"
         androi:angle="0"
         />
     <corners

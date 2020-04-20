@@ -19,7 +19,7 @@ public class Favorites extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
-        home = new Intent(this, Booking.class);
+        home = new Intent(this, Trips.class);
         password = new Intent(this, ChangePassword.class);
         bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(nav);
