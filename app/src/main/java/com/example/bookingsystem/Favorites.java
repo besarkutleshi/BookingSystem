@@ -23,6 +23,7 @@ public class Favorites extends AppCompatActivity {
         password = new Intent(this, ChangePassword.class);
         bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(nav);
+        bottomNavigation.getMenu().findItem(R.id.navigation_favorites).setChecked(true);
     }
 
 

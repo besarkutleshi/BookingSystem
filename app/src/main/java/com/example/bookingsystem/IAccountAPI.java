@@ -16,4 +16,7 @@ public interface IAccountAPI {
     @POST("Logout")
     Call<Void> Logout();
 
+    @POST("ChangePassword")
+    Call<ChangePasswordModel> ChangePassword(@Body ChangePasswordModel model);
+
 }

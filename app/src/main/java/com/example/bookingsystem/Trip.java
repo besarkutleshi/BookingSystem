@@ -17,23 +17,22 @@ public class Trip {
     private String Description;
     @SerializedName("photo")
     private String Photo;
+    @SerializedName("price")
+    private double Price;
 
+    public double getPrice(){return  Price;}
     public Integer getID() {
         return ID;
     }
-
     public String getName() {
         return Name;
     }
-
     public String getDate() {
         return Date;
     }
-
     public String getDescription() {
         return Description;
     }
-
     public String getPhoto() {
         return Photo;
     }

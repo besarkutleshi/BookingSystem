@@ -1,6 +1,10 @@
 package com.example.bookingsystem;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.ListFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +24,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
+    public static String email;
     Button btnregister;
     Button btnlogin;
     EditText txtUserName;
@@ -33,15 +38,9 @@ public class MainActivity extends AppCompatActivity {
         btnlogin = findViewById(R.id.btnLogin);
         txtUserName = findViewById(R.id.txtLoginUsername);
         txtPasswordL = findViewById(R.id.txtLoginPassword);
-        //img = findViewById(R.id.imageView2);
-        //Picasso.get().load("http://192.168.0.230:45455/api/trips/ListPhotosTrips/maldivesguide1.png").into(img);
         final Intent i = new Intent(this, Trips.class);
         final Intent in = new Intent(this, RegisterUser.class);
-        Retrofit.Builder builder = new Retrofit.Builder().
-                baseUrl("http://192.168.0.230:45455/api/trips/").
-                addConverterFactory(GsonConverterFactory.create());
-        Retrofit retrofit = builder.build();
-        accountAPI = retrofit.create(IAccountAPI.class);
+        accountAPI = HelperClass.GetRetrofit().create(IAccountAPI.class);
 
         final Intent ib = new Intent(this,BookTrip.class);
         btnlogin.setOnClickListener(
@@ -49,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         final LoginModel model = new LoginModel(txtUserName.getText().toString(),txtPasswordL.getText().toString());
-                        //Login(model,i);
-                        startActivity(ib);
+                        email = txtUserName.getText().toString();
+                        Login(model,i);
                     }
                 }
         );
@@ -80,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    txtPasswordL.setText(""); txtUserName.setText("");
                     OpenActivity(i);
                 }
             }

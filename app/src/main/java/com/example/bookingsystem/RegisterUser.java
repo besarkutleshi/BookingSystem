@@ -33,12 +33,7 @@ public class RegisterUser extends AppCompatActivity {
         txtpassword = findViewById(R.id.txtpasswordR);
         txtconfirmpassword = findViewById(R.id.txtconfirmpasswordR);
         final Intent i = new Intent(this,MainActivity.class);
-
-        Retrofit.Builder builder = new Retrofit.Builder().
-                baseUrl("http://192.168.0.230:45455/api/trips/").
-                addConverterFactory(GsonConverterFactory.create());
-        Retrofit retrofit = builder.build();
-        accountAPI = retrofit.create(IAccountAPI.class);
+        accountAPI = HelperClass.GetRetrofit().create(IAccountAPI.class);
 
         btnRegister.setOnClickListener(
                 new View.OnClickListener() {
@@ -46,6 +41,7 @@ public class RegisterUser extends AppCompatActivity {
                     public void onClick(View v) {
                         model = new RegisterModel(txtusername.getText().toString(),txtpassword.getText().toString(),txtconfirmpassword.getText().toString());
                         Register(model);
+                        txtpassword.setText(""); txtconfirmpassword.setText("");txtusername.setText("");
                     }
                 }
         );

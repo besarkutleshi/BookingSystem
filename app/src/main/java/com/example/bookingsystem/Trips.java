@@ -1,13 +1,21 @@
 package com.example.bookingsystem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -28,26 +36,44 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Trips extends AppCompatActivity {
     ITripAPI tripAPI;
     RecyclerView recyclerView;
-    final List<Integer> images= new ArrayList<>();
+    BottomNavigationView bottomNavigation;
+    Intent favorites;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trips);
-        images.add(R.drawable.maldivesguide1);
-        images.add(R.drawable.brezo);
-        images.add(R.drawable.logo);
-        images.add(R.drawable.logo);
-        images.add(R.drawable.logo);
+        favorites = new Intent(this,Favorites.class);
         recyclerView = findViewById(R.id.recyclerTrips);
-        Retrofit.Builder builder = new Retrofit.Builder().
-                baseUrl("http://192.168.0.230:45455/api/trips/").
-                addConverterFactory(GsonConverterFactory.create());
-        Retrofit retrofit = builder.build();
-        tripAPI = retrofit.create(ITripAPI.class);
+        tripAPI = HelperClass.GetRetrofit().create(ITripAPI.class);
+        bottomNavigation = findViewById(R.id.bottom_navigation);
+        bottomNavigation.setOnNavigationItemSelectedListener(nav);
+        bottomNavigation.getMenu().findItem(R.id.navigation_home).setChecked(true);
         ShowTrips();
 
     }
+
+    BottomNavigationView.OnNavigationItemSelectedListener nav = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()){
+                case R.id.navigation_favorites:
+                        startActivity(new Intent(Trips.this,Favorites.class));
+                    return  true;
+                case R.id.navigation_home:
+                    startActivity(new Intent(Trips.this,Trips.class));
+                    return  true;
+                case R.id.navigation_change:
+                    startActivity(new Intent(Trips.this,ChangePassword.class));
+                    return  true;
+                case R.id.navigation_logout:
+                    HelperClass.Logout();
+                    startActivity(new Intent(Trips.this,MainActivity.class));
+                    return  true;
+            }
+            return false;
+        }
+    };
 
     public void ShowTrips(){
         Call<List<Trip>> call = tripAPI.Trips();
@@ -59,7 +85,7 @@ public class Trips extends AppCompatActivity {
                 }
                 else{
                     List<Trip> Trips = response.body();
-                    MyAdapter adapter = new MyAdapter(Trips.this,Trips,images);
+                    MyAdapter adapter = new MyAdapter(Trips.this,Trips);
                     recyclerView.setAdapter(adapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(Trips.this));
                 }
@@ -71,6 +97,7 @@ public class Trips extends AppCompatActivity {
             }
         });
     }
+
 }
 
 
