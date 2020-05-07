@@ -26,11 +26,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Trips extends AppCompatActivity {
-    ITripAPI tripAPI;
-    RecyclerView recyclerView;
-    BottomNavigationView bottomNavigation;
-    Intent favorites;
-
+    private ITripAPI tripAPI;
+    private RecyclerView recyclerView;
+    private BottomNavigationView bottomNavigation;
+    private Intent favorites;
+    private TripRepository _tripRep;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +41,8 @@ public class Trips extends AppCompatActivity {
         bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(nav);
         bottomNavigation.getMenu().findItem(R.id.navigation_home).setChecked(true);
-        ShowTrips();
+        _tripRep = new TripRepository(Trips.this);
+        _tripRep.ShowTrips(recyclerView);
 
     }
 
