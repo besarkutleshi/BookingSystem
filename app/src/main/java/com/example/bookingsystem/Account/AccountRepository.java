@@ -48,10 +48,11 @@ public class AccountRepository {
 
 
     public void ChangePassword(ChangePasswordModel model, final Intent intent){
-        Call<ChangePasswordModel> call = accountAPI.ChangePassword(model);
-        call.enqueue(new Callback<ChangePasswordModel>() {
+        accountAPI = retrofit.create(IAccountAPI.class);
+        Call<Void> call = accountAPI.ChangePassword(model);
+        call.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<ChangePasswordModel> call, Response<ChangePasswordModel> response) {
+            public void onResponse(Call<Void> call, Response<Void> response) {
                 if(!response.isSuccessful()){
                     Toast.makeText(_context, "Not Change \n" + response.message(), Toast.LENGTH_SHORT).show();
                 }else{
@@ -61,8 +62,30 @@ public class AccountRepository {
             }
 
             @Override
-            public void onFailure(Call<ChangePasswordModel> call, Throwable t) {
+            public void onFailure(Call<Void> call, Throwable t) {
                 Toast.makeText(_context, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void Register(RegisterModel model, final Intent intent){
+        accountAPI = retrofit.create(IAccountAPI.class);
+        Call<Void> call = accountAPI.RegisterModel(model);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if(!response.isSuccessful()){
+                    Toast.makeText(_context, "Register Failed", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(_context, "Register Successful", Toast.LENGTH_SHORT).show();
+                    _context.startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(_context, t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }

@@ -19,13 +19,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterUser extends AppCompatActivity {
-    Button btnRegister;
-    Button btnClose;
-    EditText txtusername;
-    EditText txtpassword;
-    EditText txtconfirmpassword;
-    IAccountAPI accountAPI;
-    RegisterModel model;
+    private Button btnRegister;
+    private Button btnClose;
+    private EditText txtusername;
+    private EditText txtpassword;
+    private EditText txtconfirmpassword;
+    private IAccountAPI accountAPI;
+    private RegisterModel model;
+    private AccountRepository _accountRep;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,7 @@ public class RegisterUser extends AppCompatActivity {
         txtpassword = findViewById(R.id.txtpasswordR);
         txtconfirmpassword = findViewById(R.id.txtconfirmpasswordR);
         final Intent i = new Intent(this, MainActivity.class);
+        _accountRep = new AccountRepository(RegisterUser.this);
         accountAPI = HelperClass.GetRetrofit().create(IAccountAPI.class);
 
         btnRegister.setOnClickListener(
@@ -43,7 +45,7 @@ public class RegisterUser extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         model = new RegisterModel(txtusername.getText().toString(),txtpassword.getText().toString(),txtconfirmpassword.getText().toString());
-                        Register(model);
+                        _accountRep.Register(model,i);
                         txtpassword.setText(""); txtconfirmpassword.setText("");txtusername.setText("");
                     }
                 }
@@ -63,24 +65,6 @@ public class RegisterUser extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void Register(RegisterModel model){
-        Call<RegisterModel> call = accountAPI.RegisterModel(model);
-        call.enqueue(new Callback<RegisterModel>() {
-            @Override
-            public void onResponse(Call<RegisterModel> call, Response<RegisterModel> response) {
-                if(!response.isSuccessful()){
-                    Toast.makeText(RegisterUser.this, "Not Successful", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Toast.makeText(RegisterUser.this, "Register Successful", Toast.LENGTH_SHORT).show();
-                }
-            }
 
-            @Override
-            public void onFailure(Call<RegisterModel> call, Throwable t) {
-                Toast.makeText(RegisterUser.this, t.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
-    }
 
 }

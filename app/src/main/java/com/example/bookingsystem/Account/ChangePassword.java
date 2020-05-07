@@ -26,7 +26,7 @@ import retrofit2.Response;
 public class ChangePassword extends AppCompatActivity {
     private BottomNavigationView bottomNavigation;
     private Intent favorites;
-    private Intent home;
+    private Intent trips;
     private Button BtnChange;
     private IAccountAPI accountAPI;
     private EditText txtold,txtnew,txtconnew;
@@ -53,8 +53,8 @@ public class ChangePassword extends AppCompatActivity {
                         if(newp.equals(conp)){
                             ChangePasswordModel model = new ChangePasswordModel(MainActivity.email,txtold.getText().toString(),txtnew.getText().toString(),
                                     txtconnew.getText().toString());
-                            ChangePassword(model);
-                            Toast.makeText(ChangePassword.this, "Password changed", Toast.LENGTH_SHORT).show();
+                            trips = new Intent(ChangePassword.this,Trips.class);
+                            _accountRep.ChangePassword(model,trips);
                             txtnew.setText("");txtconnew.setText("");txtold.setText("");
                         }
                         else{
@@ -66,25 +66,6 @@ public class ChangePassword extends AppCompatActivity {
         );
     }
 
-
-    public void ChangePassword(ChangePasswordModel model){
-        Call<ChangePasswordModel> call = accountAPI.ChangePassword(model);
-        call.enqueue(new Callback<ChangePasswordModel>() {
-            @Override
-            public void onResponse(Call<ChangePasswordModel> call, Response<ChangePasswordModel> response) {
-                if(!response.isSuccessful()){
-                    Toast.makeText(ChangePassword.this, "Not Change \n" + response.message(), Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(ChangePassword.this, "Change Successful", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ChangePasswordModel> call, Throwable t) {
-                Toast.makeText(ChangePassword.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
     BottomNavigationView.OnNavigationItemSelectedListener nav = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override

@@ -14,12 +14,12 @@ public interface IAccountAPI {
     Call<Void> Login(@Body LoginModel model);
 
     @POST("RegisterUser")
-    Call<RegisterModel> RegisterModel(@Body RegisterModel model);
+    Call<Void> RegisterModel(@Body RegisterModel model);
 
     @POST("Logout")
     Call<Void> Logout();
 
     @POST("ChangePassword")
-    Call<ChangePasswordModel> ChangePassword(@Body ChangePasswordModel model);
+    Call<Void> ChangePassword(@Body ChangePasswordModel model);
 
 }
