@@ -1,37 +1,29 @@
-package com.example.bookingsystem;
+package com.example.bookingsystem.Trip;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
+import com.example.bookingsystem.Account.ChangePassword;
+import com.example.bookingsystem.Favorites;
+import com.example.bookingsystem.HelperClass;
+import com.example.bookingsystem.Interface.ITripAPI;
+import com.example.bookingsystem.MainActivity;
+import com.example.bookingsystem.Adapter.MyAdapter;
+import com.example.bookingsystem.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Trips extends AppCompatActivity {
     ITripAPI tripAPI;
@@ -43,7 +35,7 @@ public class Trips extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trips);
-        favorites = new Intent(this,Favorites.class);
+        favorites = new Intent(this, Favorites.class);
         recyclerView = findViewById(R.id.recyclerTrips);
         tripAPI = HelperClass.GetRetrofit().create(ITripAPI.class);
         bottomNavigation = findViewById(R.id.bottom_navigation);
@@ -64,11 +56,11 @@ public class Trips extends AppCompatActivity {
                     startActivity(new Intent(Trips.this,Trips.class));
                     return  true;
                 case R.id.navigation_change:
-                    startActivity(new Intent(Trips.this,ChangePassword.class));
+                    startActivity(new Intent(Trips.this, ChangePassword.class));
                     return  true;
                 case R.id.navigation_logout:
                     HelperClass.Logout();
-                    startActivity(new Intent(Trips.this,MainActivity.class));
+                    startActivity(new Intent(Trips.this, MainActivity.class));
                     return  true;
             }
             return false;

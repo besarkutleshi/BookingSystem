@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back_gradient"
-    tools:context=".BookTrip">
+    tools:context=".Booking.BookTrip">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
@@ -26,8 +26,7 @@
             app:layout_constraintBottom_toTopOf="@+id/cardView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/txtdescription"
@@ -52,7 +51,7 @@
         android:text="Price : "
         android:textColor="@color/colorWhite"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/txtusernameR"
+        app:layout_constraintBottom_toTopOf="@+id/txtclientSurname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +59,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/txtusernameR"
+        android:id="@+id/txtclientSurname"
         android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginLeft="40dp"
@@ -78,7 +77,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
     <EditText
-        android:id="@+id/txt"
+        android:id="@+id/txtclientname"
         android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginLeft="40dp"
@@ -107,7 +106,7 @@
         android:background="@color/colorBlack"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt"
+        app:layout_constraintTop_toBottomOf="@+id/txtclientname"
         app:layout_constraintVertical_bias="0.026" />
 
     <TextView
@@ -122,10 +121,10 @@
         android:textColor="@color/colorHint"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt" />
+        app:layout_constraintTop_toBottomOf="@+id/txtclientname" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnbook"
         android:layout_width="168dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -142,7 +141,7 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="110dp"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/btnbook"
         tools:layout_editor_absoluteX="31dp">
         <!-- Main content -->
         <com.google.android.material.bottomnavigation.BottomNavigationView

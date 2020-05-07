@@ -1,8 +1,11 @@
-package com.example.bookingsystem;
+package com.example.bookingsystem.Interface;
+
+import com.example.bookingsystem.Account.ChangePasswordModel;
+import com.example.bookingsystem.Account.LoginModel;
+import com.example.bookingsystem.Account.RegisterModel;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface IAccountAPI {

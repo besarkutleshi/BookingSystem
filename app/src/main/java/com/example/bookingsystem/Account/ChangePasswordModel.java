@@ -1,4 +1,4 @@
-package com.example.bookingsystem;
+package com.example.bookingsystem.Account;
 
 public class ChangePasswordModel {
 

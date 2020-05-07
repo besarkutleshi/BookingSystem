@@ -1,7 +1,8 @@
 package com.example.bookingsystem;
 
-import android.content.Intent;
 import android.widget.Toast;
+
+import com.example.bookingsystem.Interface.IAccountAPI;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -12,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HelperClass {
     public static Retrofit GetRetrofit(){
         Retrofit.Builder builder = new Retrofit.Builder().
-                baseUrl("http://192.168.0.230:45455/api/trips/").
+                baseUrl("http://192.168.0.229:45455/api/trips/").
                 addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
         return  retrofit;

@@ -1,21 +1,19 @@
 package com.example.bookingsystem;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.fragment.app.ListFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.squareup.picasso.Picasso;
+import com.example.bookingsystem.Account.LoginModel;
+import com.example.bookingsystem.Account.RegisterUser;
+import com.example.bookingsystem.Booking.BookTrip;
+import com.example.bookingsystem.Interface.IAccountAPI;
+import com.example.bookingsystem.Trip.Trips;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,9 +38,13 @@ public class MainActivity extends AppCompatActivity {
         txtPasswordL = findViewById(R.id.txtLoginPassword);
         final Intent i = new Intent(this, Trips.class);
         final Intent in = new Intent(this, RegisterUser.class);
-        accountAPI = HelperClass.GetRetrofit().create(IAccountAPI.class);
+        Retrofit.Builder builder = new Retrofit.Builder().
+                baseUrl("http://192.168.0.229:45455/api/trips/").
+                addConverterFactory(GsonConverterFactory.create());
+        Retrofit retrofit = builder.build();
+        accountAPI = retrofit.create(IAccountAPI.class);
 
-        final Intent ib = new Intent(this,BookTrip.class);
+        final Intent ib = new Intent(this, BookTrip.class);
         btnlogin.setOnClickListener(
                 new View.OnClickListener() {
                     @Override

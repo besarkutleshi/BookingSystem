@@ -23,6 +23,7 @@
             android:src="@drawable/holiday" />
 
         <TextView
+            android:id="@+id/txt1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"
@@ -30,7 +31,8 @@
             android:background="#000"
             android:textColor="@color/colorWhite"
             android:textStyle="bold"
-            android:layout_marginLeft="30dp"/>
+            android:layout_marginLeft="30dp"
+            tools:ignore="InvalidId" />
 
         <TextView
             android:layout_width="match_parent"
@@ -64,7 +66,8 @@
             android:textColor="@color/colorWhite"
             android:padding="10dp"
             android:textColorHint="@color/colorHint"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:autofillHints="" />
 
         <Button
             android:id="@+id/btnLogin"

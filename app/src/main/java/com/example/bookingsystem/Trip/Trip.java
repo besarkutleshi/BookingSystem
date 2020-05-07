@@ -1,4 +1,4 @@
-package com.example.bookingsystem;
+package com.example.bookingsystem.Trip;
 
 import android.content.Intent;
 

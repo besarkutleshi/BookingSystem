@@ -1,4 +1,4 @@
-package com.example.bookingsystem;
+package com.example.bookingsystem.Account;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,13 +11,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.bookingsystem.Favorites;
+import com.example.bookingsystem.HelperClass;
+import com.example.bookingsystem.Interface.IAccountAPI;
+import com.example.bookingsystem.MainActivity;
+import com.example.bookingsystem.R;
+import com.example.bookingsystem.Trip.Trips;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ChangePassword extends AppCompatActivity {
     BottomNavigationView bottomNavigation;
@@ -85,10 +89,10 @@ public class ChangePassword extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()){
                 case R.id.navigation_favorites:
-                    startActivity(new Intent(ChangePassword.this,Favorites.class));
+                    startActivity(new Intent(ChangePassword.this, Favorites.class));
                     return  true;
                 case R.id.navigation_home:
-                    startActivity(new Intent(ChangePassword.this,Trips.class));
+                    startActivity(new Intent(ChangePassword.this, Trips.class));
                     return true;
                 case R.id.navigation_logout:
                     HelperClass.Logout();

@@ -1,4 +1,4 @@
-package com.example.bookingsystem;
+package com.example.bookingsystem.Account;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,11 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.bookingsystem.HelperClass;
+import com.example.bookingsystem.Interface.IAccountAPI;
+import com.example.bookingsystem.MainActivity;
+import com.example.bookingsystem.R;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegisterUser extends AppCompatActivity {
     Button btnRegister;
@@ -32,7 +35,7 @@ public class RegisterUser extends AppCompatActivity {
         txtusername = findViewById(R.id.txtusernameR);
         txtpassword = findViewById(R.id.txtpasswordR);
         txtconfirmpassword = findViewById(R.id.txtconfirmpasswordR);
-        final Intent i = new Intent(this,MainActivity.class);
+        final Intent i = new Intent(this, MainActivity.class);
         accountAPI = HelperClass.GetRetrofit().create(IAccountAPI.class);
 
         btnRegister.setOnClickListener(
