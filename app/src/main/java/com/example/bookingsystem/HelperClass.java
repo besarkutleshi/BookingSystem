@@ -1,8 +1,10 @@
 package com.example.bookingsystem;
 
+import android.content.Intent;
 import android.widget.Toast;
 
 import com.example.bookingsystem.Interface.IAccountAPI;
+import com.example.bookingsystem.Trip.Trips;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -11,6 +13,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HelperClass {
+
+
+    private static Intent login;
     public static Retrofit GetRetrofit(){
         Retrofit.Builder builder = new Retrofit.Builder().
                 baseUrl("http://192.168.0.229:45455/api/trips/").
@@ -28,8 +33,8 @@ public class HelperClass {
                 if(!response.isSuccessful()){
                     Toast.makeText(null, "Not Logout", Toast.LENGTH_SHORT).show();
                 }else{
-
                     Toast.makeText(null, "Logout", Toast.LENGTH_SHORT).show();
+
                 }
             }
 

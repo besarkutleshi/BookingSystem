@@ -6,4 +6,6 @@
     android:textSize="20sp"
     android:background="@color/colorBlack"
     android:drawableRight="@drawable/ic_arrow_drop_down"
-    android:textColor="@color/colorHint" />
+    android:textColor="@color/colorWhite"
+
+    />

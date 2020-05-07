@@ -43,17 +43,21 @@ import retrofit2.Retrofit;
 
 public class BookTrip extends AppCompatActivity {
     private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-    BottomNavigationView bottomNavigation;
-    Spinner spinner;
-    ImageView img;
-    TextView txtdesc;TextView txtPrice;
-    String desc;double price;String url;
-    java.sql.Date date;
-    List<Integer> FreeSeats;
-    Button btnBook;
-    EditText txtClientName;
-    EditText txtClientSurname;
-    int ChairNo; int TripID;
+    private BottomNavigationView bottomNavigation;
+    private Spinner spinner;
+    private ImageView img;
+    private TextView txtdesc;
+    private TextView txtPrice;
+    private String desc;
+    private double price;
+    private String url;
+    private java.sql.Date date;
+    private Button btnBook;
+    private EditText txtClientName;
+    private EditText txtClientSurname;
+    private int TripID;
+    private BookingRepository _bookRepository;
+    private Intent trips;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,49 +70,26 @@ public class BookTrip extends AppCompatActivity {
         bottomNavigation.setOnNavigationItemSelectedListener(nav);
         bottomNavigation.getMenu().findItem(R.id.navigation_home).setChecked(true);
         txtClientName = findViewById(R.id.txtclientname); txtClientSurname = findViewById(R.id.txtclientSurname);
+        _bookRepository = new BookingRepository(BookTrip.this);
         GetData();
         SetData();
-        PasData(TripID);
-
+        _bookRepository.PasData(TripID,spinner);
+        trips = new Intent(BookTrip.this,Trips.class);
 
         btnBook.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
                         Date date = new Date();
                         String datetime = sdf.format(date).toString();
                         String chairno = spinner.getSelectedItem().toString();
-                        Booking model = new Booking(0,datetime,desc,TripID,txtClientName.getText().toString(),txtClientSurname.getText().toString(),
+                        Booking model = new Booking(0,datetime,desc,TripID,txtClientSurname.getText().toString(),txtClientName.getText().toString(),
                                 MainActivity.email,Integer.parseInt(chairno),price);
-                        Book(model);
+                        _bookRepository.Book(model,trips);
                     }
                 }
         );
     }
-
-    public void Book(Booking model){
-        Retrofit retrofit = HelperClass.GetRetrofit();
-        IBooking bookingAPI = retrofit.create(IBooking.class);
-        Call<Booking> call = bookingAPI.InsertBook(model);
-        call.enqueue(new Callback<Booking>() {
-            @Override
-            public void onResponse(Call<Booking> call, Response<Booking> response) {
-                if(!response.isSuccessful()){
-                    Toast.makeText(BookTrip.this, "Booking Failed", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(BookTrip.this, "Booking Successful", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Booking> call, Throwable t) {
-
-            }
-        });
-    }
-
-
 
     private void GetData() {
         if(getIntent().hasExtra("Description") && getIntent().hasExtra("Price") && getIntent().hasExtra("Photo")){
@@ -123,7 +104,7 @@ public class BookTrip extends AppCompatActivity {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            PasData(TripID);
+            //(TripID);
         }else{
             Toast.makeText(this, "No Data", Toast.LENGTH_SHORT).show();
         }
@@ -155,78 +136,4 @@ public class BookTrip extends AppCompatActivity {
             return false;
         }
     };
-
-    public void PasData(final int id){
-        Retrofit retrofit = HelperClass.GetRetrofit();
-        ITripAPI tripAPI = retrofit.create(ITripAPI.class);
-        Call<List<Integer>> call = tripAPI.ListChairs(id);
-        call.enqueue(new Callback<List<Integer>>() {
-            @Override
-            public void onResponse(Call<List<Integer>> call, Response<List<Integer>> response) {
-                if(!response.isSuccessful()){
-                    Toast.makeText(BookTrip.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-                }else{
-                    List<Integer> chairs = new ArrayList<>();
-                    chairs = response.body();
-                    ArrayList<Integer> FreeSeats = FreeChairs(chairs);
-                    ArrayAdapter<Integer> arrayAdapter = new ArrayAdapter<Integer>(
-                            BookTrip.this,
-                            R.layout.spinner_item,
-                            FreeSeats
-                    );
-                    spinner.setAdapter(arrayAdapter);
-                    //GetSeatNo(FreeSeats);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Integer>> call, Throwable t) {
-                Toast.makeText(BookTrip.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-
-    public ArrayList<Integer> FreeChairs(List<Integer> reservedseates){
-        ArrayList<Integer> FreeChairs = new ArrayList<>();
-        int no = 1;
-        for (int i = 0; i <= 10; i++){
-            if(i >= reservedseates.size()){
-                boolean exist = false;
-                for(int j = 0; j < reservedseates.size(); j++){
-                    if(reservedseates.get(j) == no){
-                        exist = true;
-                    }
-                }
-                if(exist == false){
-                    FreeChairs.add(no);
-                    no++;
-                    continue;
-                }
-                else{
-                    no++;
-                }
-            }
-            else if (i < reservedseates.size()){
-                boolean exist = false;
-                for(int j = 0; j < reservedseates.size(); j++){
-                    if(reservedseates.get(j) == no){
-                        exist = true;
-                    }
-                }
-                if(exist == false){
-                    FreeChairs.add(no);
-                    no++;
-                    continue;
-                }
-                else{
-                    no++;
-                }
-            }
-            else{
-                no++;
-            }
-        }
-        return FreeChairs;
-    }
 }

@@ -18,6 +18,4 @@ public interface ITripAPI {
     @GET("ListPhotosTrips")
     Call<String> PhotosTrips();
 
-    @GET("ListChairs/{id}")
-    Call<List<Integer>> ListChairs(@Path("id") int id);
 }

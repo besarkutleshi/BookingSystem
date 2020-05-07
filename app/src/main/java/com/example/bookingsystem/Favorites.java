@@ -16,13 +16,15 @@ public class Favorites extends AppCompatActivity {
     BottomNavigationView bottomNavigation;
     Intent home;
     Intent password;
+    Intent main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
         home = new Intent(this, Trips.class);
-        password = new Intent(this, ChangePassword.class);
+        password = new Intent(this, MainActivity.class);
+        main = new Intent(this, ChangePassword.class);
         bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(nav);
         bottomNavigation.getMenu().findItem(R.id.navigation_favorites).setChecked(true);
@@ -39,6 +41,9 @@ public class Favorites extends AppCompatActivity {
                 case R.id.navigation_change:
                     startActivity(password);
                     return true;
+                case R.id.navigation_logout:
+                    HelperClass.Logout();
+                    startActivity(main);
             }
             return false;
         }

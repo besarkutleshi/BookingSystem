@@ -24,15 +24,17 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ChangePassword extends AppCompatActivity {
-    BottomNavigationView bottomNavigation;
-    Intent favorites;
-    Intent home;
-    Button BtnChange;
-    IAccountAPI accountAPI;
-    EditText txtold,txtnew,txtconnew;
+    private BottomNavigationView bottomNavigation;
+    private Intent favorites;
+    private Intent home;
+    private Button BtnChange;
+    private IAccountAPI accountAPI;
+    private EditText txtold,txtnew,txtconnew;
+    private AccountRepository _accountRep;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        _accountRep = new AccountRepository(ChangePassword.this);
         setContentView(R.layout.activity_change_password);
         bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(nav);
