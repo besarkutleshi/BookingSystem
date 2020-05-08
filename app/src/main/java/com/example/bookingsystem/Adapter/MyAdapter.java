@@ -41,7 +41,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         int index = position + 1;
-        final String url = "http://192.168.0.229:45455/api/trips/ListPhotosTrips/" + index;
+        final String url = "http://192.168.0.226:45455/api/trips/ListPhotosTrips/" + index;
         Picasso.get().load(url).resize(1040,498).into(holder.Image);
         holder.Name.setText(Trips.get(position).getName());
         String date = (Trips.get(position).getDate().toString());

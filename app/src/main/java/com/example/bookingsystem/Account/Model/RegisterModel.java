@@ -1,4 +1,4 @@
-package com.example.bookingsystem.Account;
+package com.example.bookingsystem.Account.Model;
 
 import com.google.gson.annotations.SerializedName;
 

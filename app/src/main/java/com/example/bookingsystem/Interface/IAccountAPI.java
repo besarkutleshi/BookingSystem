@@ -1,8 +1,8 @@
 package com.example.bookingsystem.Interface;
 
-import com.example.bookingsystem.Account.ChangePasswordModel;
-import com.example.bookingsystem.Account.LoginModel;
-import com.example.bookingsystem.Account.RegisterModel;
+import com.example.bookingsystem.Account.Model.ChangePasswordModel;
+import com.example.bookingsystem.Account.Model.LoginModel;
+import com.example.bookingsystem.Account.Model.RegisterModel;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

@@ -84,37 +84,16 @@ public class BookingRepository {
         ArrayList<Integer> FreeChairs = new ArrayList<>();
         int no = 1;
         for (int i = 0; i <= 10; i++){
-            if(i >= reservedseates.size()){
-                boolean exist = false;
-                for(int j = 0; j < reservedseates.size(); j++){
-                    if(reservedseates.get(j) == no){
-                        exist = true;
-                    }
-                }
-                if(exist == false){
-                    FreeChairs.add(no);
-                    no++;
-                    continue;
-                }
-                else{
-                    no++;
+            boolean exist = false;
+            for(int j = 0; j < reservedseates.size(); j++){
+                if(reservedseates.get(j) == no){
+                    exist = true;
                 }
             }
-            else if (i < reservedseates.size()){
-                boolean exist = false;
-                for(int j = 0; j < reservedseates.size(); j++){
-                    if(reservedseates.get(j) == no){
-                        exist = true;
-                    }
-                }
-                if(exist == false){
-                    FreeChairs.add(no);
-                    no++;
-                    continue;
-                }
-                else{
-                    no++;
-                }
+            if(exist == false){
+                FreeChairs.add(no);
+                no++;
+                continue;
             }
             else{
                 no++;

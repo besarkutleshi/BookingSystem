@@ -20,8 +20,8 @@ public class TripRepository {
 
     private Context _context;
     ITripAPI tripAPI;
-    public TripRepository(Context _context) {
-        this._context = _context;
+    public TripRepository(Context context) {
+        this._context = context;
     }
 
     public void ShowTrips(final RecyclerView recyclerView){

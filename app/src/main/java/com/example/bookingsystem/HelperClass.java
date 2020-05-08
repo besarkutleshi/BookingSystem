@@ -18,7 +18,7 @@ public class HelperClass {
     private static Intent login;
     public static Retrofit GetRetrofit(){
         Retrofit.Builder builder = new Retrofit.Builder().
-                baseUrl("http://192.168.0.229:45455/api/trips/").
+                baseUrl("http://192.168.0.226:45455/api/trips/").
                 addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
         return  retrofit;
@@ -44,5 +44,7 @@ public class HelperClass {
             }
         });
     }
+
+
 
 }

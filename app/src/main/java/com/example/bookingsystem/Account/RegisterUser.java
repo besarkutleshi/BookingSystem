@@ -7,16 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
+import com.example.bookingsystem.Account.Model.AccountRepository;
+import com.example.bookingsystem.Account.Model.RegisterModel;
 import com.example.bookingsystem.HelperClass;
 import com.example.bookingsystem.Interface.IAccountAPI;
 import com.example.bookingsystem.MainActivity;
 import com.example.bookingsystem.R;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class RegisterUser extends AppCompatActivity {
     private Button btnRegister;

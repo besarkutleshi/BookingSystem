@@ -1,4 +1,4 @@
-package com.example.bookingsystem.Account;
+package com.example.bookingsystem.Account.Model;
 
 public class LoginModel {
     public String Email;

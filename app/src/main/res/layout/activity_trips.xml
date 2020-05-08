@@ -4,13 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/placeholder"
     android:background="@drawable/back_gradient"
     tools:context=".Trip.Trips">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerTrips"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+
 
     <FrameLayout
         android:layout_width="match_parent"
