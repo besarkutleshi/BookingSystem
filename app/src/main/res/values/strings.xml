@@ -12,4 +12,18 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="btnLogout">Log Out</string>
+    <string name="description">Description :</string>
+    <string name="price">Price :</string>
+    <string name="book">Book</string>
+    <string name="mainimage">MainImage</string>
+    <string name="image2">Image2</string>
+    <string name="image3">Image3</string>
+    <string name="image4">Image4</string>
+    <string name="image5">Image5</string>
+    <string name="booking">BOOK</string>
+    <string name="todo1">TODO1</string>
+    <string name="todo2">TODO2</string>
+    <string name="todo3">TODO3</string>
+    <string name="todo4">TODO4</string>
+    <string name="todo5">TODO5</string>
 </resources>

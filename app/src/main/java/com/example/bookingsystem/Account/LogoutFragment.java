@@ -19,7 +19,6 @@ import com.example.bookingsystem.R;
 public class LogoutFragment extends Fragment {
     private Button btnLogout;
     private AccountRepository _accountRep;
-
     public LogoutFragment(){
     }
     public static LogoutFragment newInstance() {
@@ -38,6 +37,7 @@ public class LogoutFragment extends Fragment {
             public void onClick(View v) {
                 Intent login = new Intent(container.getContext(), MainActivity.class);
                 _accountRep.Logout(login);
+                startActivity(login);
             }
         });
         return  view;

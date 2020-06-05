@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ShowTrips"></activity>
+        <activity android:name=".Booking.BookingTrip"></activity>
+        <activity android:name=".ShowTrips" />
         <activity android:name=".Booking.BookTrip" />
         <activity android:name=".Trip.Trips" />
         <activity android:name=".Account.ChangePassword" />

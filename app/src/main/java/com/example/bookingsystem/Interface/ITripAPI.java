@@ -18,4 +18,9 @@ public interface ITripAPI {
     @GET("ListPhotosTrips")
     Call<String> PhotosTrips();
 
+    @GET("GetPhotos/{id}")
+    Call<List<String>> GetPhotos(@Path("id") int id);
+
+    @GET("GetPhoto/{photo}")
+    Call<List<String>> GetPhoto(@Path("photo") String photo);
 }

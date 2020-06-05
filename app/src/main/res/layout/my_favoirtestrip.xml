@@ -9,7 +9,7 @@
     android:layout_marginBottom="20dp">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/cardViewfav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,7 @@
             android:background="@drawable/back_gradient">
 
             <ImageView
-                android:id="@+id/Tripimg"
+                android:id="@+id/Tripimgfav"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
                 android:layout_marginTop="15dp"
@@ -36,7 +36,7 @@
                 app:srcCompat="@drawable/maldivesguide1" />
 
             <TextView
-                android:id="@+id/txtNameT"
+                android:id="@+id/txtNameTfav"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="52dp"
@@ -46,10 +46,10 @@
                 android:textColor="#FFF"
                 android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Tripimg" />
+                app:layout_constraintTop_toBottomOf="@+id/Tripimgfav" />
 
             <TextView
-                android:id="@+id/txtDateT"
+                android:id="@+id/txtDatefavT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="52dp"
@@ -58,43 +58,26 @@
                 android:text="Date : "
                 android:textColor="#FFF"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtNameT" />
+                app:layout_constraintTop_toBottomOf="@+id/txtNameTfav" />
 
             <Button
-                android:id="@+id/buttonLearn"
-                android:layout_width="121dp"
+                android:id="@+id/buttonDelete"
+                android:layout_width="81dp"
                 android:layout_height="47dp"
-                android:layout_marginStart="240dp"
-                android:layout_marginLeft="240dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/loginbutton_back"
-                android:text="Learn More"
-                android:textColor="@color/colorBlack"
+                android:layout_marginStart="280dp"
+                android:layout_marginLeft="280dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorAccent"
+                android:text="Delete"
+                android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Tripimg" />
+                app:layout_constraintTop_toBottomOf="@+id/Tripimgfav" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/colorHint" />
-
-            <Button
-                android:id="@+id/btnFav"
-                android:layout_width="55dp"
-                android:layout_height="49dp"
-                android:layout_marginStart="85dp"
-                android:layout_marginLeft="85dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/colorBlack"
-                android:drawableLeft="@drawable/ic_favorite"
-                android:gravity="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/buttonLearn"
-                app:layout_constraintHorizontal_bias="0.73"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Tripimg"
-                app:layout_constraintVertical_bias="0.0" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
