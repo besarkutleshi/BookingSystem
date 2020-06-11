@@ -2,6 +2,7 @@ package com.example.bookingsystem.Booking;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,7 @@ public class BookingTrip extends AppCompatActivity {
     private TripRepository _tripRepository;
     public static List<String> photos;
     private Button btnSave;
+    private Button btnBooking;
     private double price;
     private String title;
 
@@ -37,6 +39,7 @@ public class BookingTrip extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_trip);
         btnSave = findViewById(R.id.btnsave);
+        btnBooking = findViewById(R.id.btnBooking);
         mainImage = findViewById(R.id.mainImage);
         txtdesc = findViewById(R.id.txtdescription);
         txtprice = findViewById(R.id.txtprice);
@@ -49,6 +52,16 @@ public class BookingTrip extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+            }
+        });
+
+        final Intent i = new Intent(this,BookTrip.class);
+        i.putExtra("Price",price);
+        i.putExtra("TripID",TripID);
+        btnBooking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(i);
             }
         });
     }

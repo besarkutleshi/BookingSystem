@@ -26,4 +26,11 @@
     <string name="todo3">TODO3</string>
     <string name="todo4">TODO4</string>
     <string name="todo5">TODO5</string>
+    <string name="book_trip">Book Trip</string>
+    <string name="surname">Surname</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="txtdescription">Description</string>
+    <string name="clear">CLEAR</string>
+    <string name="seat">Seat</string>
 </resources>

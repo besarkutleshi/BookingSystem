@@ -8,42 +8,164 @@
     tools:context=".Booking.BookTrip">
 
 
-    <ImageView
-        android:id="@+id/mainImage"
-        android:layout_width="406dp"
-        android:layout_height="190dp"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/book_trip"
+        android:textColor="@color/colorBlack"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/amsterdam" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/description"
-        android:layout_width="412dp"
-        android:layout_height="118dp"
-        android:layout_marginTop="24dp"
+        android:id="@+id/txtname"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginRight="15dp"
+        android:autofillHints=""
+        android:paddingLeft="20sp"
+        android:paddingRight="0sp"
+        android:background="@drawable/textbox_back"
+        android:hint="@string/name"
+        android:inputType="text"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="@color/colorHint"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainImage" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:paddingStart="20sp"
+        android:paddingEnd="0sp" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="154dp"
-        android:layout_height="123dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="20dp"
+    <EditText
+        android:id="@+id/txtsurname"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/textbox_back"
+        android:hint="@string/surname"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="@color/colorHint"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description"
-        app:srcCompat="@drawable/brezo" />
+        app:layout_constraintTop_toBottomOf="@+id/txtname"
+        android:paddingLeft="20sp"
+        android:paddingRight="0sp"
+        android:paddingStart="20sp"
+        android:paddingEnd="0sp" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="169dp"
-        android:layout_height="131dp"
-        app:srcCompat="@drawable/dubai"
-        tools:layout_editor_absoluteX="211dp"
-        tools:layout_editor_absoluteY="352dp" />
+    <EditText
+        android:id="@+id/txtemailbook"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/textbox_back"
+        android:hint="@string/email"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="@color/colorHint"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtsurname"
+        android:paddingLeft="20sp"
+        android:paddingRight="0sp"
+        android:paddingStart="20sp"
+        android:paddingEnd="0sp" />
+
+    <Spinner
+        android:id="@+id/chairs"
+        android:layout_width="209dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:background="@drawable/spinner"
+        android:gravity="center"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtemailbook" />
+
+    <EditText
+        android:id="@+id/txtdescriptionbook"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/textbox_back"
+        android:hint="@string/txtdescription"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="@color/colorHint"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chairs"
+        android:paddingLeft="20sp"
+        android:paddingRight="0sp"
+        android:paddingStart="20sp"
+        android:paddingEnd="0sp" />
+
+    <Button
+        android:id="@+id/btnBook"
+        android:layout_width="205dp"
+        android:layout_height="47dp"
+        android:background="@drawable/loginbutton_back"
+        android:text="@string/book"
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtdescriptionbook"
+        app:layout_constraintVertical_bias="0.882" />
+
+    <Button
+        android:id="@+id/btnClear"
+        android:layout_width="205dp"
+        android:layout_height="47dp"
+        android:background="@drawable/clear"
+        android:text="@string/clear"
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnBook"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtdescriptionbook"
+        app:layout_constraintVertical_bias="0.882" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="5dp"
+        android:text="@string/seat"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/chairs"
+        app:layout_constraintHorizontal_bias="0.396"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtemailbook"
+        android:layout_marginStart="5dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

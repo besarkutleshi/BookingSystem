@@ -7,11 +7,13 @@
     android:background="@drawable/back_gradient"
     tools:context=".Booking.BookingTrip">
 
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="393dp"
-        android:layout_height="240dp"
+        android:layout_height="230dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="16dp"
         android:layout_marginRight="15dp"
         app:cardCornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,13 +36,12 @@
 
     </androidx.cardview.widget.CardView>
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
         android:layout_width="393dp"
-        android:layout_height="345dp"
+        android:layout_height="323dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="15dp"
         app:cardCornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -97,7 +98,7 @@
             android:layout_width="354dp"
             android:layout_height="53dp"
             android:layout_marginLeft="45dp"
-            android:layout_marginTop="295dp"
+            android:layout_marginTop="270dp"
             android:background="@drawable/loginbutton_back"
             android:text="@string/booking"
             android:textSize="20dp"
