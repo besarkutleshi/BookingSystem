@@ -7,87 +7,105 @@
     android:background="@drawable/back_gradient"
     tools:context=".Booking.BookingTrip">
 
-    <ImageView
-        android:id="@+id/mainImage"
-        android:layout_width="411dp"
-        android:layout_height="141dp"
-        android:src="@drawable/brezo"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="393dp"
+        android:layout_height="240dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        app:cardCornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/todo1" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="365dp"
-        android:layout_height="85dp"
-        android:autofillHints=""
-        android:textColor="@color/colorWhite"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainImage" />
+        <ImageView
+            android:id="@+id/mainImage"
+            android:layout_width="match_parent"
+            android:layout_height="223dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:contentDescription="@string/todo1"
+            android:src="@drawable/brezo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.958"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/firstimage"
-        android:layout_width="154dp"
-        android:layout_height="123dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/brezo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description"
-        android:contentDescription="@string/todo2" />
+    </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:id="@+id/secondimage"
-        android:layout_width="154dp"
-        android:layout_height="123dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/brezo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
-        app:layout_constraintStart_toEndOf="@+id/firstimage"
-        app:layout_constraintTop_toBottomOf="@+id/description"
-        android:contentDescription="@string/todo3" />
 
-    <ImageView
-        android:id="@+id/thirdimage"
-        android:layout_width="154dp"
-        android:layout_height="123dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/brezo"
-        app:layout_constraintBottom_toTopOf="@+id/btnBooking"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstimage"
-        app:layout_constraintVertical_bias="0.0"
-        android:contentDescription="@string/todo4" />
-
-    <ImageView
-        android:id="@+id/fourthimage"
-        android:layout_width="155dp"
-        android:layout_height="123dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/brezo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toEndOf="@+id/thirdimage"
-        app:layout_constraintTop_toBottomOf="@+id/secondimage"
-        android:contentDescription="@string/todo5" />
-
-    <Button
-        android:id="@+id/btnBooking"
-        android:layout_width="338dp"
-        android:layout_height="44dp"
-        android:text="@string/booking"
-        android:background="@drawable/loginbutton_back"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="393dp"
+        android:layout_height="345dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        app:cardCornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fourthimage" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        app:layout_constraintVertical_bias="0.269">
+
+
+        <TextView
+            android:id="@+id/txttitle"
+            android:layout_width="240dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            android:text="TextView"
+            android:textColor="@color/colorBlack"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/txtprice"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="320dp"
+            android:layout_marginTop="30dp"
+            android:text="price"
+            android:textColor="@color/colorBlack"
+            android:textSize="25sp" />
+
+
+        <TextView
+            android:id="@+id/txtdescription"
+            android:layout_width="240dp"
+            android:layout_height="144dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="95dp"
+            android:text="Description"
+            android:textColor="@color/colorBlack"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btnsave"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="320dp"
+            android:layout_marginTop="135dp"
+            android:background="@color/colorWhite"
+            android:drawableLeft="@drawable/ic_favorite_black_24dp" />
+
+
+        <Button
+            android:id="@+id/btnBooking"
+            android:layout_width="354dp"
+            android:layout_height="53dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="295dp"
+            android:background="@drawable/loginbutton_back"
+            android:text="@string/booking"
+            android:textSize="20dp"
+            app:layout_constraintVertical_bias="1.0" />
+
+
+    </androidx.cardview.widget.CardView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

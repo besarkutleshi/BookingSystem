@@ -28,8 +28,8 @@
             android:layout_height="wrap_content"
             android:text="Login"
             android:textSize="35dp"
-            android:background="#000"
-            android:textColor="@color/colorWhite"
+            android:background="@color/manifestColor"
+            android:textColor="@color/colorBlack"
             android:textStyle="bold"
             android:layout_marginLeft="30dp"
             tools:ignore="InvalidId" />
@@ -39,19 +39,19 @@
             android:layout_height="wrap_content"
             android:text="Please sign in to continue"
             android:layout_marginLeft="30dp"
-            android:textColor="@color/colorHint"/>
+            android:textColor="@color/colorBlack"/>
 
         <EditText
             android:id="@+id/txtLoginUsername"
             android:layout_width="330dp"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/textbox_back"
-            android:drawableLeft="@drawable/ic_person_outline_white_24dp"
-            android:hint="USER NAME"
-            android:textColor="@color/colorWhite"
+            android:background="@color/manifestColor"
+            android:drawableLeft="@drawable/ic_person_outline_black_24dp"
+            android:hint="USERNAME"
+            android:textColor="@color/colorBlack"
             android:padding="10dp"
-            android:textColorHint="@color/colorHint"
+            android:textColorHint="@color/colorBlack"
             android:textSize="22sp" />
 
         <EditText
@@ -59,13 +59,13 @@
             android:layout_width="330dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/textbox_back"
+            android:background="@color/manifestColor"
             android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
             android:hint="PASSWORD"
             android:inputType="textPassword"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBlack"
             android:padding="10dp"
-            android:textColorHint="@color/colorHint"
+            android:textColorHint="@color/colorBlack"
             android:textSize="22sp"
             android:autofillHints="" />
 
@@ -84,9 +84,9 @@
             android:layout_width="wrap_content"
             android:layout_height="52dp"
             android:layout_marginTop="70dp"
-            android:background="#000"
+            android:background="@color/manifestColor"
             android:text="Dont have an account? Sign up "
-            android:textColor="@color/colorHint"
+            android:textColor="@color/colorBlack"
             android:textSize="15sp"
             />
     </LinearLayout>

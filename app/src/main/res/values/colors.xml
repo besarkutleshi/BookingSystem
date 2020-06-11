@@ -8,4 +8,5 @@
     <color name="colorHint">#c3acacac</color>
     <color name="colorNav">#f2f5df</color>
     <color name="colorWhite">#FFF</color>
+    <color name="manifestColor">#d0bdf4</color>
 </resources>

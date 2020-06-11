@@ -66,7 +66,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                         i.putExtra("Price",Trips.get(position).getPrice());
                         i.putExtra("Photo",url.toString());
                         i.putExtra("Date",Trips.get(position).getDate().toString());
-                        //i.putExtra("Photos",photos);
+                        i.putExtra("Title",Trips.get(position).getName().toString());
                         getContext().startActivity(i);
                     }
                 }
@@ -88,10 +88,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     }
 
-    private void SetPhotos(ImageView img,String photo){
-        final String url1 = "http://192.168.0.228:45455/trips/GetPhoto/" + photo;
-        Picasso.get().load(url1).resize(154,123).into(img);
-    }
 
     @Override
     public int getItemCount() {
