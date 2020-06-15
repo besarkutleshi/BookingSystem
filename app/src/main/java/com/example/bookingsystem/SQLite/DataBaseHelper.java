@@ -51,9 +51,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public List<Trip> ShowFavoritesTrip(){
         List<Trip> trips = new ArrayList<>();
-        String query = "Select * From" + " Trips";
+        String query = "Select * From" + " Trips" + " WHERE UserEmail = ? ";
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(query,null);
+        Cursor cursor = db.rawQuery(query,new String[] {MainActivity.email});
         if(cursor.moveToFirst()){
             do{
                 Trip obj = new Trip();
@@ -70,8 +70,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public boolean DeleteTrip(int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        int a = db.delete("Trips","ID" + " = ?",
-                new String[]{String.valueOf(id)});
+        int a = db.delete("Trips","ID" + " = ?" + " AND UserEmail = ? ",
+                new String[]{String.valueOf(id),MainActivity.email});
         db.close();
         return a > 0;
     }

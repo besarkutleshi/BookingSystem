@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.bookingsystem.Account.Model.AccountRepository;
 import com.example.bookingsystem.Account.Model.RegisterModel;
@@ -42,8 +43,14 @@ public class RegisterUser extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         model = new RegisterModel(txtusername.getText().toString(),txtpassword.getText().toString(),txtconfirmpassword.getText().toString());
-                        _accountRep.Register(model,i);
-                        txtpassword.setText(""); txtconfirmpassword.setText("");txtusername.setText("");
+                        if(model.ConfirmPassword.isEmpty() || model.Email.isEmpty() || model.Password.isEmpty()){
+                            Toast.makeText(RegisterUser.this, "Please fill in empty box's", Toast.LENGTH_SHORT).show();
+                        }else {
+                            _accountRep.Register(model, i);
+                            txtpassword.setText("");
+                            txtconfirmpassword.setText("");
+                            txtusername.setText("");
+                        }
                     }
                 }
         );

@@ -1,5 +1,4 @@
 package com.example.bookingsystem.Adapter;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,17 +6,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.bookingsystem.R;
 import com.example.bookingsystem.SQLite.DataBaseHelper;
 import com.example.bookingsystem.Trip.Trip;
 import com.squareup.picasso.Picasso;
-
 import java.util.List;
 
 public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.MyViewHolder> {
@@ -43,7 +37,8 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         holder.txtName.setText(Trips.get(position).getName());
-        holder.txtDate.setText(Trips.get(position).getDate());
+        String[] date = Trips.get(position).getDate().split("T");
+        holder.txtDate.setText(date[0]);
         String url = "http://192.168.0.228:45455/trips/GetPhoto/" + Trips.get(position).getPhoto();
         Picasso.get().load(url).resize(1040,498).into(holder.image);
         holder.Delete.setOnClickListener(new View.OnClickListener() {

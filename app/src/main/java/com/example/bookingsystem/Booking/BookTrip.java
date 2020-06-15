@@ -55,7 +55,13 @@ public class BookTrip extends AppCompatActivity {
             public void onClick(View v) {
                 Booking obj = new Booking(0,"",txtdescription.getText().toString(),tripid,txtname.getText().toString(),
                         txtsurname.getText().toString(),txtemail.getText().toString(),Integer.parseInt(spinner.getSelectedItem().toString()),tripprice);
-                _book.Book(obj,trips);
+                if(obj.Description.isEmpty() || obj.ChairNo == 0 || obj.ClientEmail.isEmpty() || obj.ClientSurname.isEmpty() ||
+                        obj.ClientName.isEmpty() || obj.TripID == 0 || obj.Price == 0){
+                    Toast.makeText(BookTrip.this, "Please fill in empty box's", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    _book.Book(obj,trips);
+                }
             }
         });
 

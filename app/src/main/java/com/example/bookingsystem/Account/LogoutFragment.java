@@ -37,7 +37,7 @@ public class LogoutFragment extends Fragment {
             public void onClick(View v) {
                 Intent login = new Intent(container.getContext(), MainActivity.class);
                 _accountRep.Logout(login);
-                MainActivity.email = "";
+                MainActivity.email = null;
                 startActivity(login);
             }
         });

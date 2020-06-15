@@ -19,23 +19,14 @@ import com.example.bookingsystem.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Trips extends AppCompatActivity {
-    private ITripAPI tripAPI;
-    private RecyclerView recyclerView;
     private BottomNavigationView bottomNavigation;
-    private Intent favorites;
-    private TripRepository _tripRep;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trips);
-        //favorites = new Intent(this, Favorites.class);
-        //recyclerView = findViewById(R.id.recyclerTrips);
-        tripAPI = HelperClass.GetRetrofit().create(ITripAPI.class);
         bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(nav);
         bottomNavigation.getMenu().findItem(R.id.navigation_home).setChecked(true);
-        //_tripRep = new TripRepository(Trips.this);
-        //_tripRep.ShowTrips(recyclerView);
         ItemFragment item = new ItemFragment();
         openFragment(item);
     }

@@ -11,17 +11,21 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewfav"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="230sp"
+        app:cardCornerRadius="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="5dp"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/back_gradient">
+            android:background="#f2f5df">
 
             <ImageView
                 android:id="@+id/Tripimgfav"
@@ -43,7 +47,7 @@
                 android:layout_marginLeft="52dp"
                 android:layout_marginTop="8dp"
                 android:text="Name : "
-                android:textColor="#FFF"
+                android:textColor="@color/colorBlack"
                 android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Tripimgfav" />
@@ -56,19 +60,20 @@
                 android:layout_marginLeft="52dp"
                 android:layout_marginTop="8dp"
                 android:text="Date : "
-                android:textColor="#FFF"
+                android:textColor="@color/colorBlack"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtNameTfav" />
 
             <Button
                 android:id="@+id/buttonDelete"
-                android:layout_width="81dp"
-                android:layout_height="47dp"
-                android:layout_marginStart="280dp"
-                android:layout_marginLeft="280dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="54dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="285dp"
+                android:layout_marginLeft="285dp"
+                android:layout_marginTop="12dp"
                 android:background="@color/colorAccent"
-                android:text="Delete"
+                android:drawableTop="@drawable/ic_delete_forever_black_24dp"
+                android:gravity="center"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Tripimgfav" />
