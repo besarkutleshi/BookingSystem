@@ -1,11 +1,7 @@
 package com.example.bookingsystem;
-
 import android.content.Intent;
 import android.widget.Toast;
-
 import com.example.bookingsystem.Interface.IAccountAPI;
-import com.example.bookingsystem.Trip.Trips;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,6 +30,7 @@ public class HelperClass {
                     Toast.makeText(null, "Not Logout", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(null, "Logout", Toast.LENGTH_SHORT).show();
+                   // MainActivity.email = null;
                 }
             }
 

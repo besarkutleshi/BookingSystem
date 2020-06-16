@@ -1,5 +1,8 @@
 package com.example.bookingsystem.Booking;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -76,6 +79,7 @@ public class BookTrip extends AppCompatActivity {
         });
 
     }
+
 
     private void GetData(){
         if(getIntent().hasExtra("TripID") && getIntent().hasExtra("Price")){
