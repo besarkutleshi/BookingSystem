@@ -1,20 +1,15 @@
 package com.example.bookingsystem.Favorites;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.bookingsystem.Adapter.FavoritesAdapter;
-import com.example.bookingsystem.Adapter.MyAdapter;
 import com.example.bookingsystem.R;
 import com.example.bookingsystem.SQLite.DataBaseHelper;
 import com.example.bookingsystem.Trip.Trip;
-
 import java.util.List;
 
 public class FavoritesFragment extends Fragment {

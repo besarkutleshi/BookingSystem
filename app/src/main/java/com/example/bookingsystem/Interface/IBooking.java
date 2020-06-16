@@ -1,6 +1,7 @@
 package com.example.bookingsystem.Interface;
 
 import com.example.bookingsystem.Booking.Booking;
+import com.example.bookingsystem.Trip.Trip;
 
 import java.util.List;
 
@@ -17,4 +18,7 @@ public interface IBooking {
 
     @GET("ListChairs/{id}")
     Call<List<Integer>> ListChairs(@Path("id") int id);
+
+    @GET("MyTrips/{email}")
+    Call<List<Trip>> MyTrips(@Path("email") String email);
 }

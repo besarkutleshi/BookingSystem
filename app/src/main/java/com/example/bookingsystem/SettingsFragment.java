@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.bookingsystem.Account.ChangePasswordFragment;
+import com.example.bookingsystem.Booking.MyBookingsFragment;
 
 
 public class SettingsFragment extends Fragment {
@@ -47,6 +48,13 @@ public class SettingsFragment extends Fragment {
             }
         });
         Button btnMyBookings = view.findViewById(R.id.btnMyBookings);
+        btnMyBookings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyBookingsFragment obj = new MyBookingsFragment();
+                openFragment(obj);
+            }
+        });
         Button btnLogout = view.findViewById(R.id.btnLogoutS);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override

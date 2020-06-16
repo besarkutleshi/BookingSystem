@@ -6,10 +6,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.bookingsystem.Adapter.MyAdapter;
+import com.example.bookingsystem.Adapter.MyBookingsAdapter;
 import com.example.bookingsystem.HelperClass;
 import com.example.bookingsystem.Interface.IBooking;
 import com.example.bookingsystem.Interface.ITripAPI;
 import com.example.bookingsystem.R;
+import com.example.bookingsystem.Trip.Trip;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,14 +27,14 @@ import retrofit2.Retrofit;
 
 public class BookingRepository {
     Context _context;
+    IBooking bookingAPI;
     public BookingRepository(Context context){
         _context = context;
     }
 
 
     public void Book(Booking model, final Intent trips){
-        Retrofit retrofit = HelperClass.GetRetrofit();
-        IBooking bookingAPI = retrofit.create(IBooking.class);
+        bookingAPI = HelperClass.GetRetrofit().create(IBooking.class);
         Call<Void> call = bookingAPI.InsertBook(model);
         call.enqueue(new Callback<Void>() {
             @Override
@@ -100,6 +106,30 @@ public class BookingRepository {
             }
         }
         return FreeChairs;
+    }
+
+    public void MyBookings(String email, final RecyclerView recyclerView){
+        bookingAPI = HelperClass.GetRetrofit().create(IBooking.class);
+        Call<List<Trip>> call = bookingAPI.MyTrips(email);
+        call.enqueue(new Callback<List<Trip>>() {
+            @Override
+            public void onResponse(Call<List<Trip>> call, Response<List<Trip>> response) {
+                if(!response.isSuccessful()){
+                    Toast.makeText(_context, response.message(), Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    List<Trip> Trips = response.body();
+                    MyBookingsAdapter adapter = new MyBookingsAdapter(Trips,_context);
+                    recyclerView.setAdapter(adapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(_context));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Trip>> call, Throwable t) {
+
+            }
+        });
     }
 
 }
