@@ -20,26 +20,29 @@
             android:layout_height="150dp"
             android:layout_marginTop="-20dp"
             android:layout_marginBottom="40dp"
-            android:src="@drawable/holiday" />
+            android:src="@drawable/holiday"
+            android:contentDescription="@string/todo" />
 
         <TextView
             android:id="@+id/txt1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
-            android:textSize="35dp"
+            android:text="@string/login1"
+            android:textSize="35sp"
             android:background="@color/manifestColor"
             android:textColor="@color/colorBlack"
             android:textStyle="bold"
             android:layout_marginLeft="30dp"
-            tools:ignore="InvalidId" />
+            tools:ignore="InvalidId"
+            android:layout_marginStart="30dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Please sign in to continue"
+            android:text="@string/please_sign_in_to_continue"
             android:layout_marginLeft="30dp"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorBlack"
+            android:layout_marginStart="30dp" />
 
         <EditText
             android:id="@+id/txtLoginUsername"
@@ -48,11 +51,14 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/textbox_back"
             android:drawableLeft="@drawable/ic_person_outline_black_24dp"
-            android:hint="USERNAME"
+            android:hint="@string/username"
             android:textColor="@color/colorBlack"
             android:padding="10dp"
             android:textColorHint="@color/colorHint"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:drawableStart="@drawable/ic_person_outline_black_24dp" />
 
         <EditText
             android:id="@+id/txtLoginPassword"
@@ -61,13 +67,14 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/textbox_back"
             android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
-            android:hint="PASSWORD"
+            android:hint="@string/password1"
             android:inputType="textPassword"
             android:textColor="@color/colorBlack"
             android:padding="10dp"
             android:textColorHint="@color/colorHint"
             android:textSize="22sp"
-            android:autofillHints="" />
+            android:autofillHints=""
+            android:drawableStart="@drawable/ic_lock_outline_black_24dp" />
 
         <Button
             android:id="@+id/btnLogin"
@@ -75,7 +82,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/loginbutton_back"
-            android:text="Login"
+            android:text="@string/login"
             android:textColor="@color/colorBlack"
             android:textSize="22sp" />
 
@@ -85,7 +92,7 @@
             android:layout_height="52dp"
             android:layout_marginTop="70dp"
             android:background="@color/manifestColor"
-            android:text="Dont have an account? Sign up "
+            android:text="@string/dont_have_an_account_sign_up"
             android:textColor="@color/colorBlack"
             android:textSize="15sp"
             />

@@ -10,8 +10,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="393dp"
-        android:layout_height="230dp"
+        android:layout_width="395dp"
+        android:layout_height="190dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="15dp"
@@ -22,18 +22,18 @@
 
         <ImageView
             android:id="@+id/mainImage"
-            android:layout_width="match_parent"
-            android:layout_height="223dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="15dp"
+            android:layout_width="395dp"
+            android:layout_height="250dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="-30dp"
+            android:layout_marginRight="0dp"
             android:contentDescription="@string/todo1"
             android:src="@drawable/brezo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.958"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -58,9 +58,11 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="10dp"
-            android:text="TextView"
+            android:text="@string/textview"
             android:textColor="@color/colorBlack"
-            android:textSize="25dp" />
+            android:textSize="25sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp" />
 
         <TextView
             android:id="@+id/txtprice"
@@ -68,9 +70,10 @@
             android:layout_height="50dp"
             android:layout_marginLeft="320dp"
             android:layout_marginTop="30dp"
-            android:text="price"
+            android:text="@string/bprice"
             android:textColor="@color/colorBlack"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:layout_marginStart="320dp" />
 
 
         <TextView
@@ -79,9 +82,10 @@
             android:layout_height="144dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="95dp"
-            android:text="Description"
+            android:text="@string/descriptionb"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp" />
+            android:textSize="20sp"
+            android:layout_marginStart="20dp" />
 
         <Button
             android:id="@+id/btnsave"
@@ -90,7 +94,9 @@
             android:layout_marginLeft="320dp"
             android:layout_marginTop="135dp"
             android:background="@color/colorWhite"
-            android:drawableLeft="@drawable/ic_favorite_black_24dp" />
+            android:drawableLeft="@drawable/ic_favorite_black_24dp"
+            android:layout_marginStart="320dp"
+            android:drawableStart="@drawable/ic_favorite_black_24dp" />
 
 
         <Button
@@ -101,8 +107,9 @@
             android:layout_marginTop="270dp"
             android:background="@drawable/loginbutton_back"
             android:text="@string/booking"
-            android:textSize="20dp"
-            app:layout_constraintVertical_bias="1.0" />
+            android:textSize="20sp"
+            app:layout_constraintVertical_bias="1.0"
+            android:layout_marginStart="45dp" />
 
 
     </androidx.cardview.widget.CardView>

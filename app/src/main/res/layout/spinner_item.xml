@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:textSize="20sp"
-    android:background="@color/colorBlack"
+    android:background="@color/colorWhite"
     android:drawableRight="@drawable/ic_arrow_drop_down"
-    android:textColor="@color/colorWhite"
+    android:textColor="@color/colorBlack"
 
     />

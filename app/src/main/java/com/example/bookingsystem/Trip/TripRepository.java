@@ -23,14 +23,14 @@ import retrofit2.Response;
 public class TripRepository {
 
     private Context _context;
-    public static List<String> photos = new ArrayList<>();
+    public static List<TripPhoto> photos = new ArrayList<>();
     ITripAPI tripAPI;
     public TripRepository(Context context) {
         this._context = context;
+        tripAPI = HelperClass.GetRetrofit().create(ITripAPI.class);
     }
 
     public void ShowTrips(final RecyclerView recyclerView){
-        tripAPI = HelperClass.GetRetrofit().create(ITripAPI.class);
         Call<List<Trip>> call = tripAPI.Trips();
         call.enqueue(new Callback<List<Trip>>() {
             @Override
@@ -53,13 +53,12 @@ public class TripRepository {
         });
     }
 
-    public List<String> GetPhotos(int id){
+    public List<TripPhoto> GetPhotos(int id){
         final String[] array = null;
-        tripAPI = HelperClass.GetRetrofit().create(ITripAPI.class);
-        Call<List<String>> call = tripAPI.GetPhotos(id);
-        call.enqueue(new Callback<List<String>>() {
+        Call<List<TripPhoto>> call = tripAPI.GetPhotos(id);
+        call.enqueue(new Callback<List<TripPhoto>>() {
             @Override
-            public void onResponse(Call<List<String>> call, Response<List<String>> response) {
+            public void onResponse(Call<List<TripPhoto>> call, Response<List<TripPhoto>> response) {
                 if(!response.isSuccessful()){
                     Toast.makeText(_context, response.message(), Toast.LENGTH_SHORT).show();
                 }
@@ -76,19 +75,33 @@ public class TripRepository {
             }
 
             @Override
-            public void onFailure(Call<List<String>> call, Throwable t) {
+            public void onFailure(Call<List<TripPhoto>> call, Throwable t) {
                 Toast.makeText(_context, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
         return photos;
     }
 
+    public void GetTrips(final RecyclerView recyclerView, String name) {
+        Call<List<Trip>> call = tripAPI.GetTrips(name);
+        call.enqueue(new Callback<List<Trip>>() {
+            @Override
+            public void onResponse(Call<List<Trip>> call, Response<List<Trip>> response) {
+                if (!response.isSuccessful()) {
+                    Toast.makeText(_context, response.message(), Toast.LENGTH_SHORT).show();
+                } else {
+                    List<Trip> Trips = response.body();
+                    MyAdapter adapter = new MyAdapter(_context, Trips);
+                    recyclerView.setAdapter(adapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(_context));
+                }
+            }
 
-    public String[] PhotosArray(List<String> list){
-        String[] images = new String[list.size()];
-        for (int i = 1; i < list.size(); i++){
-            images[i] = photos.get(i);
-        }
-        return  images;
+            @Override
+            public void onFailure(Call<List<Trip>> call, Throwable t) {
+                Toast.makeText(_context, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }

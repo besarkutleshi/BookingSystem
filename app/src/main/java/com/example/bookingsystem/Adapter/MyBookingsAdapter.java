@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookingsystem.Booking.BookingRepository;
+import com.example.bookingsystem.HelperClass;
 import com.example.bookingsystem.R;
 import com.example.bookingsystem.Trip.Trip;
 import com.squareup.picasso.Picasso;
@@ -41,8 +42,8 @@ public class MyBookingsAdapter extends RecyclerView.Adapter<MyBookingsAdapter.My
         String[] date = MyTrips.get(position).getDate().split("T");
         holder.txtdate.setText(date[0]);
         holder.txtname.setText(MyTrips.get(position).getName());
-        String url = "http://192.168.0.228:45455/trips/GetPhoto/" + MyTrips.get(position).getPhoto();
-        Picasso.get().load(url).resize(1040,498).into(holder.img);
+        String url = HelperClass.Url + "GetPhoto/" + MyTrips.get(position).getPhoto();
+        Picasso.get().load(url).resize(1210,498).into(holder.img);
     }
 
     @Override

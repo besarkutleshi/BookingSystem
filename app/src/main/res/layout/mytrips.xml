@@ -29,13 +29,13 @@
             <ImageView
                 android:id="@+id/Tripimg"
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:layout_marginTop="15dp"
+                android:layout_height="160dp"
                 android:layout_marginBottom="5dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.045"
+                app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/maldivesguide1" />
 
             <TextView
@@ -45,9 +45,9 @@
                 android:layout_marginStart="52dp"
                 android:layout_marginLeft="52dp"
                 android:layout_marginTop="8dp"
-                android:text="Name : "
+                android:text="@string/namet"
                 android:textColor="@color/colorBlack"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Tripimg" />
 
@@ -58,7 +58,7 @@
                 android:layout_marginStart="52dp"
                 android:layout_marginLeft="52dp"
                 android:layout_marginTop="8dp"
-                android:text="Date : "
+                android:text="@string/date"
                 android:textColor="@color/colorBlack"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtNameT" />
@@ -71,7 +71,7 @@
                 android:layout_marginLeft="240dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/loginbutton_back"
-                android:text="Learn More"
+                android:text="@string/learn_more"
                 android:textColor="@color/colorBlack"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Tripimg" />
@@ -92,7 +92,8 @@
                 app:layout_constraintHorizontal_bias="0.73"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Tripimg"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.0"
+                android:drawableStart="@drawable/ic_favorite_black_24dp" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

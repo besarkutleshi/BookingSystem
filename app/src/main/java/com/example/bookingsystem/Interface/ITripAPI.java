@@ -2,6 +2,7 @@ package com.example.bookingsystem.Interface;
 
 import com.example.bookingsystem.Booking.Booking;
 import com.example.bookingsystem.Trip.Trip;
+import com.example.bookingsystem.Trip.TripPhoto;
 
 import java.util.List;
 
@@ -19,8 +20,11 @@ public interface ITripAPI {
     Call<String> PhotosTrips();
 
     @GET("GetPhotos/{id}")
-    Call<List<String>> GetPhotos(@Path("id") int id);
+    Call<List<TripPhoto>> GetPhotos(@Path("id") int id);
 
     @GET("GetPhoto/{photo}")
     Call<List<String>> GetPhoto(@Path("photo") String photo);
+
+    @GET("GetTrips/{name}")
+    Call<List<Trip>> GetTrips(@Path("name") String name);
 }

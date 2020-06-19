@@ -3,6 +3,7 @@ package com.example.bookingsystem.Booking;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bookingsystem.HelperClass;
 import com.example.bookingsystem.R;
+import com.example.bookingsystem.Trip.TripPhoto;
 import com.example.bookingsystem.Trip.TripRepository;
 import com.squareup.picasso.Picasso;
 
@@ -19,6 +22,10 @@ import java.util.List;
 
 public class BookingTrip extends AppCompatActivity {
     private ImageView mainImage;
+    private ImageView img2;
+    private ImageView img3;
+    private ImageView img4;
+    private ImageView img5;
     private TextView txtdesc;
     private TextView txttitle;
     private TextView txtprice;
@@ -27,13 +34,10 @@ public class BookingTrip extends AppCompatActivity {
     private int TripID;
     private BookingRepository _bookRepository;
     private TripRepository _tripRepository;
-    public static List<String> photos;
     private Button btnSave;
     private Button btnBooking;
     private double price;
     private String title;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,12 +52,8 @@ public class BookingTrip extends AppCompatActivity {
         _tripRepository = new TripRepository(BookingTrip.this);
         GetData();
         SetData();
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
+
 
         final Intent i = new Intent(this,BookTrip.class);
         i.putExtra("Price",price);

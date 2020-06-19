@@ -2,6 +2,9 @@ package com.example.bookingsystem;
 import android.content.Intent;
 import android.widget.Toast;
 import com.example.bookingsystem.Interface.IAccountAPI;
+
+import java.net.URI;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -14,11 +17,13 @@ public class HelperClass {
     private static Intent login;
     public static Retrofit GetRetrofit(){
         Retrofit.Builder builder = new Retrofit.Builder().
-                baseUrl("http://192.168.0.228:45455/trips/").
+                baseUrl(Url).
                 addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
         return  retrofit;
     }
+
+    public static String Url = "http://192.168.0.229:45455/trips/";
 
     public static void Logout(){
         IAccountAPI accountAPI = GetRetrofit().create(IAccountAPI.class);

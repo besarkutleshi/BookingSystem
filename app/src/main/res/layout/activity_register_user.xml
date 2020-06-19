@@ -20,24 +20,27 @@
             android:layout_height="150dp"
             android:layout_marginTop="-20dp"
             android:layout_marginBottom="10dp"
-            android:src="@drawable/holiday" />
+            android:src="@drawable/holiday"
+            android:contentDescription="@string/todo" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create Account"
-            android:textSize="35dp"
+            android:text="@string/create_account"
+            android:textSize="35sp"
             android:background="@color/manifestColor"
             android:textColor="@color/colorBlack"
             android:textStyle="bold"
-            android:layout_marginLeft="30dp"/>
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Please fill the input below here"
+            android:text="@string/please_fill_the_input_below_here"
             android:layout_marginLeft="30dp"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorBlack"
+            android:layout_marginStart="30dp" />
 
         <EditText
             android:id="@+id/txtusernameR"
@@ -46,11 +49,14 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/textbox_back"
             android:drawableLeft="@drawable/ic_person_outline_black_24dp"
-            android:hint="USER NAME"
+            android:hint="@string/user_name"
             android:textColor="@color/colorBlack"
             android:padding="10dp"
             android:textColorHint="@color/colorHint"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:inputType="text"
+            android:importantForAutofill="no"
+            android:drawableStart="@drawable/ic_person_outline_black_24dp" />
 
         <EditText
             android:id="@+id/txtpasswordR"
@@ -59,12 +65,14 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/textbox_back"
             android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
-            android:hint="PASSWORD"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:textColor="@color/colorBlack"
             android:padding="10dp"
             android:textColorHint="@color/colorHint"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:importantForAutofill="no"
+            android:drawableStart="@drawable/ic_lock_outline_black_24dp" />
 
         <EditText
             android:id="@+id/txtconfirmpasswordR"
@@ -73,12 +81,14 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/textbox_back"
             android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
-            android:hint="CONFIRM PASSWORD"
+            android:hint="@string/confirm_password"
             android:inputType="textPassword"
             android:textColor="@color/colorBlack"
             android:padding="10dp"
             android:textColorHint="@color/colorHint"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:importantForAutofill="no"
+            android:drawableStart="@drawable/ic_lock_outline_black_24dp" />
 
         <Button
             android:id="@+id/btnRegisterUser"
@@ -86,7 +96,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="50dp"
             android:background="@drawable/loginbutton_back"
-            android:text="Register"
+            android:text="@string/register"
             android:textColor="#000"
             android:textSize="22sp" />
 
@@ -96,9 +106,9 @@
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:textSize="15sp"
-            android:text="Login"
+            android:text="@string/login"
             android:textColor="@color/colorBlack"
-            android:background="@drawable/textbox_back"
+            android:background="@drawable/back_gradient"
             />
     </LinearLayout>
 

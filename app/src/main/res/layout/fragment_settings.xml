@@ -19,7 +19,7 @@
             android:layout_height="172dp"
             android:layout_gravity="center"
             android:layout_marginTop="-15sp"
-            android:src="@drawable/amsterdam"
+            android:src="@drawable/user"
             app:civ_border_color="#FF000000"
             app:civ_border_width="2dp"/>
 
