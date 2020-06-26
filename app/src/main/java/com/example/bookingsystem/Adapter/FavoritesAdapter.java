@@ -39,7 +39,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.MyVi
         holder.txtName.setText(Trips.get(position).getName());
         String[] date = Trips.get(position).getDate().split("T");
         holder.txtDate.setText(date[0]);
-        String url = "http://192.168.0.229:45455/trips/GetPhoto/" + Trips.get(position).getPhoto();
+        String url = "http://192.168.0.32:45455/trips/GetPhoto/" + Trips.get(position).getPhoto();
         Picasso.get().load(url).resize(1210,498).into(holder.image);
         holder.Delete.setOnClickListener(new View.OnClickListener() {
             @Override

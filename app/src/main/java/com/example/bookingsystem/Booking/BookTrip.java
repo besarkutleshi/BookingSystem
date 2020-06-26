@@ -1,9 +1,16 @@
 package com.example.bookingsystem.Booking;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,6 +50,7 @@ public class BookTrip extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_trip);
+        createChanel();
         spinner = findViewById(R.id.chairs);
         txtname = findViewById(R.id.txtname);
         txtsurname = findViewById(R.id.txtsurname);
@@ -64,6 +72,7 @@ public class BookTrip extends AppCompatActivity {
                 }
                 else{
                     _book.Book(obj,trips);
+                    SendNotification();
                 }
             }
         });
@@ -85,6 +94,39 @@ public class BookTrip extends AppCompatActivity {
         if(getIntent().hasExtra("TripID") && getIntent().hasExtra("Price")){
             tripprice = getIntent().getDoubleExtra("Price",0);
             tripid = getIntent().getIntExtra("TripID",0);
+        }
+    }
+
+    private void SendNotification(){
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(
+                BookTrip.this,"besarchanel"
+        )
+                .setSmallIcon(R.drawable.ic_message)
+                .setContentTitle("New Booking")
+                .setContentText("The reservation has been made successful")
+                .setPriority(
+                        NotificationCompat.PRIORITY_DEFAULT
+                );
+
+        Intent intent = new Intent(BookTrip.this,Trips.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent pendingIntent  = PendingIntent.getActivity(BookTrip.this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(pendingIntent);
+        NotificationManagerCompat compat = NotificationManagerCompat.from(this);
+        compat.notify(0,builder.build());
+    }
+
+
+    private void createChanel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name = "BookingChannel";
+            String description = "Channel for booking";
+            int importante = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("besarchanel",name,importante);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
         }
     }
 }

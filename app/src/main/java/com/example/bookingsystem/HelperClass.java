@@ -15,6 +15,7 @@ public class HelperClass {
 
 
     private static Intent login;
+
     public static Retrofit GetRetrofit(){
         Retrofit.Builder builder = new Retrofit.Builder().
                 baseUrl(Url).
@@ -23,7 +24,7 @@ public class HelperClass {
         return  retrofit;
     }
 
-    public static String Url = "http://192.168.0.229:45455/trips/";
+    public static String Url = "http://192.168.0.230:45455/trips/";
 
     public static void Logout(){
         IAccountAPI accountAPI = GetRetrofit().create(IAccountAPI.class);
